@@ -1,0 +1,43 @@
+@property --fit-text-captured {
+	syntax: "<length>";
+	initial-value: 0px;
+	inherits: true;
+}
+
+.fit-text {
+	--fit-text-captured: initial;
+
+	display: flex;
+	container-type: inline-size;
+}
+
+.fit-text__reference {
+	visibility: hidden;
+}
+
+.fit-text__container {
+	--fit-text-captured: 100cqi;
+	--fit-text-available: var(--fit-text-captured);
+
+	flex-grow: 1;
+	container-type: inline-size;
+}
+
+.fit-text__display {
+	--fit-text-captured: 100cqi;
+	--fit-text-ratio: tan(
+		atan2(
+			var(--fit-text-available),
+			var(--fit-text-available) - var(--fit-text-captured)
+		)
+	);
+
+	display: block;
+	inline-size: var(--fit-text-available);
+
+	font-size: clamp(
+		var(--fit-text-min, 1em),
+		1em * var(--fit-text-ratio),
+		var(--fit-text-max, infinity * 1px)
+	);
+}
