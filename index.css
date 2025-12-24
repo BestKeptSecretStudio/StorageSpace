@@ -1,0 +1,32 @@
+@import "./fonts.css";
+@import "tailwindcss";
+
+@theme {
+	/* Fluid type scale - based on Utopia with 1.125 ratio */
+	--text-fluid-000: clamp(0.740625rem, 0.73rem + 0.07vw, 0.78125rem);
+	--text-fluid-00: clamp(0.833125rem, 0.79rem + 0.19vw, 0.9375rem);
+	--text-fluid-0: clamp(0.9375rem, 0.87rem + 0.33vw, 1.125rem);
+	--text-fluid-1: clamp(1.055rem, 0.95rem + 0.52vw, 1.35rem);
+	--text-fluid-2: clamp(1.18625rem, 1.03rem + 0.77vw, 1.62rem);
+	--text-fluid-3: clamp(1.335rem, 1.11rem + 1.08vw, 1.94375rem);
+	--text-fluid-4: clamp(1.501875rem, 1.2rem + 1.48vw, 2.3325rem);
+	--text-fluid-5: clamp(1.689375rem, 1.28rem + 1.97vw, 2.799375rem);
+	--text-fluid-6: clamp(1.900625rem, 1.37rem + 2.59vw, 3.359375rem);
+	--text-fluid-7: clamp(2.138125rem, 1.44rem + 3.37vw, 4.03125rem);
+	--text-fluid-8: clamp(2.405625rem, 1.51rem + 4.32vw, 4.8375rem);
+	--text-fluid-9: clamp(2.70625rem, 1.57rem + 5.51vw, 5.805rem);
+	--text-fluid-10: clamp(3.03125rem, 1.59rem + 6.99vw, 6.965625rem);
+	--text-fluid-11: clamp(3.78875rem, 1.35rem + 11.84vw, 10.448125rem);
+	--text-fluid-12: clamp(4.735625rem, 0.73rem + 19.44vw, 15.671875rem);
+}
+
+.font-grounded {
+	font-family: "Manrope", sans-serif;
+}
+.font-ultrabold {
+	font-family: "BBH Bartle", cursive;
+}
+
+.background-cold {
+	background: linear-gradient(to bottom, #00010a 0%, transparent 100%);
+}
