@@ -9,9 +9,14 @@ export const Footer: FunctionalComponent<HTMLAttributes<HTMLElement>> = ({
 	...props
 }) => {
 	return (
-		<footer class={cn("text-sm tracking-[0.02ch]", className)} {...props}>
+		<>
 			<Ticker />
-			<div className="p-6">{children}</div>
-		</footer>
+			<footer
+				class={cn("text-sm tracking-[0.02ch] border-t", className)}
+				{...props}
+			>
+				<div className="p-6">{children}</div>
+			</footer>
+		</>
 	);
 };
