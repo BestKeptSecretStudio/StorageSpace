@@ -1,4 +1,4 @@
-import { STORAGE_UNITS } from "@/data/storage";
+import { UNITS } from "@/data/storage";
 import { getTotalValue } from "@/data/values";
 import { $units } from "@/state/$storage";
 import { type USD } from "@/types/aliases";
@@ -11,7 +11,7 @@ export const MONEY_FORMATTER = Intl.NumberFormat("en-US", {
 	maximumFractionDigits: 2,
 });
 
-const INITIAL_MONEY = STORAGE_UNITS["shed"].cost;
+const INITIAL_MONEY = UNITS["shed"].cost;
 
 export const $money = atom(INITIAL_MONEY);
 export const $totalMoney = atom(INITIAL_MONEY);

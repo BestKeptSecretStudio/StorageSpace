@@ -16,7 +16,7 @@ import {
 	SavingsTitle,
 	UPGRADE_STYLES,
 } from "@/components/Savings";
-import { getUnit, STORAGE_UNITS, type UnitID } from "@/data/storage";
+import { getUnit, UNITS, type UnitID } from "@/data/storage";
 import { Layout } from "@/Layout";
 import { keys, values } from "@/lib/object";
 import { $area, $units, buyUnit, getUnitCost } from "@/state/$storage";
@@ -58,7 +58,7 @@ export function App() {
 					{keys(units)
 						.filter((id) => units[id].visible)
 						.map((id) => {
-							const unit = STORAGE_UNITS[id];
+							const unit = UNITS[id];
 							const cost = getUnitCost(id);
 							const canBuy = hasEnoughMoney(cost);
 

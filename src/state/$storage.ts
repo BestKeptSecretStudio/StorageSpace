@@ -1,4 +1,4 @@
-import { STORAGE_UNITS, type UnitID } from "@/data/storage";
+import { UNITS, type UnitID } from "@/data/storage";
 import { getTotalValue } from "@/data/values";
 import { entries } from "@/lib/object";
 import { $money } from "@/state/$money";
@@ -33,7 +33,7 @@ onMount($units, () => {
 	const unlisten = $money.listen((money) => {
 		const units = $units.get();
 		const mapped = entries(units).map(([key, unit]) => {
-			const data = STORAGE_UNITS[key];
+			const data = UNITS[key];
 
 			return [
 				key,
@@ -93,7 +93,7 @@ function getCostScaling(cost: number, count: number): number {
 }
 
 export function getUnitCost(id: UnitID): number {
-	const unit = STORAGE_UNITS[id];
+	const unit = UNITS[id];
 	const count = $units.get()[id].count;
 
 	return getCostScaling(unit.cost, count);

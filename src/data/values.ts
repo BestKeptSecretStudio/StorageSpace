@@ -1,9 +1,4 @@
-import {
-	STORAGE_UNITS,
-	UNIT_IDS,
-	type Property,
-	type UnitID,
-} from "@/data/storage";
+import { UNITS, UNIT_IDS, type Property, type UnitID } from "@/data/storage";
 import { type Effect } from "@/data/upgrades";
 import { mutate } from "@/lib/value";
 import { $units } from "@/state/$storage";
@@ -30,7 +25,7 @@ function isPrefix(key: string[], path: string[]): boolean {
 }
 
 /**
- * Get raw value from {@link STORAGE_UNITS} for a base property.
+ * Get raw value from {@link UNITS} for a base property.
  * Only works for base properties (area, rate), not derived (income).
  */
 function getBaseValue(path: UnitPropertyPath): number {
@@ -41,7 +36,7 @@ function getBaseValue(path: UnitPropertyPath): number {
 			`\`${property}\` is a derived property, use \`getValue()\` instead`,
 		);
 
-	return STORAGE_UNITS[unit][property];
+	return UNITS[unit][property];
 }
 
 /**

@@ -4,8 +4,8 @@ import { type MetersSquare, type USD } from "@/types/aliases";
 
 export type UnitID = (typeof UNIT_IDS)[number];
 
-export interface StorageUnit {
-	/** Unique freeform ID of the unit's type. Internal. Must match the key under which the type is stored in {@link STORAGE_UNITS}. */
+export interface Unit {
+	/** Unique freeform ID of the unit's type. Internal. Must match the key under which the type is stored in {@link UNITS}. */
 	id: string;
 	/** Name of the unit. Player-oriented. */
 	name: string;
@@ -23,7 +23,7 @@ export type UnitProperty = "cost" | "area" | "rate";
 export type DerivedProperty = "income" | "count";
 export type Property = UnitProperty | DerivedProperty;
 
-export const STORAGE_UNITS = {
+export const UNITS = {
 	/*
 	 # HUSTLE STAGE
 	 */
@@ -49,10 +49,10 @@ export const STORAGE_UNITS = {
 		area: 25 /* 14 by 18 ft = 252 sq ft = 23.41 m2 */,
 		rate: 1,
 	},
-} satisfies Record<string, StorageUnit>;
+} satisfies Record<string, Unit>;
 
-export const UNIT_IDS = keys(STORAGE_UNITS);
+export const UNIT_IDS = keys(UNITS);
 
-export function getUnit(id: UnitID): StorageUnit {
-	return STORAGE_UNITS[id];
+export function getUnit(id: UnitID): Unit {
+	return UNITS[id];
 }
