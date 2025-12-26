@@ -87,7 +87,11 @@ export const SavingsDescription: FunctionalComponent<
 	HTMLAttributes<HTMLParagraphElement>
 > = ({ children, className, ...props }) => {
 	return (
-		<p class={cn("text-sm text-inherit tracking-wide truncate", className)} {...props}>
+		// * right-side padding serves as a gap against the floating icon
+		<p
+			class={cn("text-sm text-inherit tracking-wide pr-4", className)}
+			{...props}
+		>
 			{children}
 		</p>
 	);
