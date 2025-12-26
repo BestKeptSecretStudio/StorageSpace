@@ -64,7 +64,10 @@ export const SavingsHeader: FunctionalComponent<
 	HTMLAttributes<HTMLElement>
 > = ({ children, className, ...props }) => {
 	return (
-		<header class={cn("w-full", className)} {...props}>
+		<header
+			class={cn("w-full flex flex-col gap-y-2", className)}
+			{...props}
+		>
 			{children}
 		</header>
 	);
