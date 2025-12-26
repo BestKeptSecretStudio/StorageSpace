@@ -61,10 +61,6 @@ onMount($units, () => {
 });
 
 export const $area = computed($units, () => getTotalValue(["area"]));
-// TODO: migrate formatting to the UI layer?
-export const $displayArea = computed($area, (area) => {
-	return `${AREA_FORMATTER.format(area)} m²`;
-});
 
 export function addUnit(id: UnitID, value: number): void {
 	if (value < 0)
