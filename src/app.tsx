@@ -48,6 +48,7 @@ export function App() {
 	const transactions = useStore($transactions);
 	// * calling this forces costs/"has enough money" to recalculate
 	useStore($money);
+	// * ditto for area
 	useStore($area);
 
 	return (
