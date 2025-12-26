@@ -1,5 +1,5 @@
 import { UNITS, type UnitID } from "@/data/storage";
-import { getTotalValue } from "@/data/values";
+import { getValue } from "@/data/values";
 import { entries } from "@/lib/object";
 import { $money } from "@/state/$money";
 import { deepMap } from "@nanostores/deepmap";
@@ -60,7 +60,7 @@ onMount($units, () => {
 	return unlisten;
 });
 
-export const $area = computed($units, () => getTotalValue(["area"]));
+export const $area = computed($units, () => getValue(["area"]));
 
 export function addUnit(id: UnitID, value: number): void {
 	if (value < 0)

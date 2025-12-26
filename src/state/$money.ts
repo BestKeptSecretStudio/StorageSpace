@@ -1,5 +1,5 @@
 import { UNITS } from "@/data/storage";
-import { getTotalValue } from "@/data/values";
+import { getValue } from "@/data/values";
 import { $units } from "@/state/$storage";
 import { type USD } from "@/types/aliases";
 import { atom, computed } from "nanostores";
@@ -16,7 +16,7 @@ const INITIAL_MONEY = UNITS["shed"].cost;
 export const $money = atom(INITIAL_MONEY);
 export const $totalMoney = atom(INITIAL_MONEY);
 
-export const $income = computed($units, () => getTotalValue(["income"]));
+export const $income = computed($units, () => getValue(["income"]));
 
 export function addMoney(value: USD): void {
 	if (value < 0) throw new Error("Attempted to add negative amount of money");
