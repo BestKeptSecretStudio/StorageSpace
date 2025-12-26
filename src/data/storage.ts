@@ -24,6 +24,10 @@ export type DerivedProperty = "income" | "count";
 export type Property = UnitProperty | DerivedProperty;
 
 export const STORAGE_UNITS = {
+	/*
+	 # HUSTLE STAGE
+	 */
+
 	shed: {
 		// * this is meant to be a tiny shed, likely handmade in some backwater town in the South
 		// * therefore its cost is low, and so is its area
@@ -37,11 +41,12 @@ export const STORAGE_UNITS = {
 	},
 	garage: {
 		// > reference: https://shedsunlimited.net/garages/classic-1-car-prefab-garages/
+		// fallback: https://web.archive.org/web/20251226152802/https://shedsunlimited.net/garages/classic-1-car-prefab-garages/
 		id: "garage",
 		name: "Garage",
 		icon: "garage",
 		cost: 10_000,
-		area: 23.41 /* 14 by 18 ft = 252 sq ft = 23.41 m2 */,
+		area: 25 /* 14 by 18 ft = 252 sq ft = 23.41 m2 */,
 		rate: 1,
 	},
 } satisfies Record<string, StorageUnit>;
