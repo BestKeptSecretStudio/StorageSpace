@@ -1,24 +1,25 @@
 import { cn } from "@/lib/utils";
-import type {
-	CSSProperties,
-	FunctionalComponent,
-	HTMLAttributes,
-} from "preact";
+import type { CSSProperties, FunctionComponent, HTMLAttributes } from "react";
 import "./FitText.css";
 
-export const FitText: FunctionalComponent<
+export const FitText: FunctionComponent<
 	HTMLAttributes<HTMLSpanElement> & { max?: string }
 > = ({ children, max, className, style, ...props }) => {
 	return (
 		<span
-			class={cn("fit-text", className)}
-			style={{ "--fit-text-max": max, ...(style as CSSProperties) }}
+			className={cn("fit-text flex @container", className)}
+			style={
+				{
+					"--fit-text-max": max,
+					...(style as CSSProperties),
+				} as CSSProperties
+			}
 			{...props}
 		>
-			<span class="fit-text__container">
-				<span class="fit-text__display">{children}</span>
+			<span className="fit-text-container grow @container">
+				<span className="fit-text-display block">{children}</span>
 			</span>
-			<span aria-hidden="true" class="fit-text__reference">
+			<span aria-hidden="true" className="invisible">
 				{children}
 			</span>
 		</span>
