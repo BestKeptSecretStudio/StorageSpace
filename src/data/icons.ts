@@ -8,6 +8,10 @@ export const DEFAULT_ICON_KEY = "missing" satisfies IconKey;
 export const ICONS = {
 	shed: ShedIcon,
 	garage: GarageIcon,
+	lot: GarageIcon,
+	facility: GarageIcon,
+	warehouse: GarageIcon,
+	depot: GarageIcon,
 
 	// * MISSING ICON
 	missing: ShedIcon,

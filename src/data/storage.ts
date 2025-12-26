@@ -55,8 +55,8 @@ export const UNITS = {
 		// * this unit is based on small multi-unit facilities placed around or next to strip malls
 		id: "lot",
 		name: "Strip Lot",
-		// TODO
-		icon: "garage",
+		// TODO: replace with an actual icon in `icons.ts`
+		icon: "lot",
 		cost: 125_000,
 		area: 150 /* 1_500 sq. ft. = 139.4 m2, rounded up */,
 		rate: 1,
@@ -64,8 +64,8 @@ export const UNITS = {
 	facility: {
 		id: "facility",
 		name: "Facility",
-		// TODO
-		icon: "garage",
+		// TODO: replace with an actual icon in `icons.ts`
+		icon: "facility",
 		cost: 1_000_000,
 		area: 1000 /* 12_000 sq. ft. = 1114.83 m2, rounded down */,
 		rate: 1,
@@ -73,8 +73,8 @@ export const UNITS = {
 	warehouse: {
 		id: "warehouse",
 		name: "Warehouse",
-		// TODO
-		icon: "garage",
+		// TODO: replace with an actual icon in `icons.ts`
+		icon: "warehouse",
 		cost: 8_000_000,
 		area: 7_500 /* 80_000 sq. ft. = 7_432.24 m2, rounded up */,
 		rate: 1,
@@ -82,8 +82,8 @@ export const UNITS = {
 	depot: {
 		id: "depot",
 		name: "Depot",
-		// TODO
-		icon: "garage",
+		// TODO: replace with an actual icon in `icons.ts`
+		icon: "depot",
 		cost: 60_000_000,
 		area: 50_000 /* 500_000 sq. ft. = 46_452 m2, rounded up */,
 		rate: 1,
