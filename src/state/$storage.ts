@@ -21,6 +21,10 @@ export const AREA_FORMATTER = Intl.NumberFormat("en-US", {
 export const $units = deepMap<UnitMap>({
 	shed: { count: 0, visible: true },
 	garage: { count: 0, visible: false },
+	lot: { count: 0, visible: false },
+	facility: { count: 0, visible: false },
+	warehouse: { count: 0, visible: false },
+	depot: { count: 0, visible: false },
 });
 // TODO: `$placeholderVisible`: show placeholder of the next unit if the player is 80% towards its cost
 // * do not hide the placeholder if player's money drops; only hide when next type is revealed

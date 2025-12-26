@@ -49,6 +49,45 @@ export const UNITS = {
 		area: 25 /* 14 by 18 ft = 252 sq ft = 23.41 m2 */,
 		rate: 1,
 	},
+	lot: {
+		// * platforms that host these sorts of deals don't allow scraping, so we can't provide a specific reference
+		// * these values are based off of searching the American South for deals
+		// * this unit is based on small multi-unit facilities placed around or next to strip malls
+		id: "lot",
+		name: "Strip Lot",
+		// TODO
+		icon: "garage",
+		cost: 125_000,
+		area: 150 /* 1_500 sq. ft. = 139.4 m2, rounded up */,
+		rate: 1,
+	},
+	facility: {
+		id: "facility",
+		name: "Facility",
+		// TODO
+		icon: "garage",
+		cost: 1_000_000,
+		area: 1000 /* 12_000 sq. ft. = 1114.83 m2, rounded down */,
+		rate: 1,
+	},
+	warehouse: {
+		id: "warehouse",
+		name: "Warehouse",
+		// TODO
+		icon: "garage",
+		cost: 8_000_000,
+		area: 7_500 /* 80_000 sq. ft. = 7_432.24 m2, rounded up */,
+		rate: 1,
+	},
+	depot: {
+		id: "depot",
+		name: "Depot",
+		// TODO
+		icon: "garage",
+		cost: 60_000_000,
+		area: 50_000 /* 500_000 sq. ft. = 46_452 m2, rounded up */,
+		rate: 1,
+	},
 } satisfies Record<string, Unit>;
 
 export const UNIT_IDS = keys(UNITS);
