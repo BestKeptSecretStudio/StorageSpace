@@ -7,7 +7,7 @@ import { $effects } from "@/state/$upgrades";
 /** Path to a specific unit's property */
 export type UnitPropertyPath = [property: Property, unit: UnitID];
 
-/** Path to an aggregate property (all units) */
+/** Path to an aggregate property */
 export type AggregatePropertyPath = [property: Property];
 
 /** Valid property paths */
@@ -66,7 +66,7 @@ function applyEffects(value: number, effects: Effect[]): number {
  *   Fetches base value, applies matching effects.
  *
  * For derived properties (income):
- *   Computes area × rate, then applies income effects.
+ *   Computes `area × rate`, then applies income effects.
  */
 export function getUnitValue(path: UnitPropertyPath): number {
 	const [property, unit] = path;
@@ -92,11 +92,11 @@ export function getUnitValue(path: UnitPropertyPath): number {
 /**
  * Get the total value for a property across owned units.
  *
- * For unit-specific path (e.g., ["area", "shed"]):
- *   Returns getValue(path) × count of that unit.
+ * For unit-specific path (e.g., `["area", "shed"]`):
+ *   Returns `getValue(path) × count` of that unit.
  *
- * For aggregate path (e.g., ["area"]):
- *   Sums getTotalValue for each unit type.
+ * For aggregate path (e.g., `["area"]`):
+ *   Sums `getTotalValue()` for each unit type.
  */
 export function getTotalValue(path: PropertyPath): number {
 	const [property, unit] = path;
@@ -117,10 +117,10 @@ export function getTotalValue(path: PropertyPath): number {
 /**
  * Get value for a property path.
  *
- * For unit-specific path (e.g., ["area", "shed"]):
+ * For unit-specific path (e.g., `["area", "shed"]`):
  *   Returns the per-unit value (not multiplied by count).
  *
- * For aggregate path (e.g., ["area"]):
+ * For aggregate path (e.g., `["area"]`):
  *   Returns the total value across all owned units.
  */
 export function getValue(path: PropertyPath): number {
