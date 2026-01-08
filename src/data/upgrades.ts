@@ -51,9 +51,9 @@ export const UPGRADES = {
 		cost: 100,
 		requirements: [
 			{
-				key: ["count", "shed"],
+				key: ["area"],
 				comparator: ">=",
-				value: 10,
+				value: 50,
 			},
 		],
 		effects: [
