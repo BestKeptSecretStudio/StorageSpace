@@ -38,15 +38,16 @@ onMount($units, () => {
 		const units = $units.get();
 		const mapped = entries(units).map(([key, unit]) => {
 			const data = UNITS[key];
+			// * if `true` already, settle on it
+			// * this avoids recalculation based on *current* money
+			// * and thus doesn't "disappear" already-eligible units
+			const visible = unit.visible || money >= data.cost;
 
 			return [
 				key,
 				{
 					...unit,
-					// * if `true` already, settle on it
-					// * this avoids recalculation based on *current* money
-					// * and thus doesn't "disappear" already-eligible units
-					visible: unit.visible || money >= data.cost,
+					visible,
 				} satisfies UnitData,
 			] satisfies [UnitID, UnitData];
 		});
