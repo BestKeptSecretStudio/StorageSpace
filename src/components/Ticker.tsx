@@ -66,7 +66,7 @@ export const Ticker: FunctionalComponent<HTMLAttributes<HTMLDivElement>> = ({
 	return (
 		<div
 			class={cn(
-				"flex items-center sticky bottom-0 w-full h-8 py-1 overflow-x-hidden border-t",
+				"flex items-center sticky bottom-0 w-full min-h-9 py-1 overflow-x-hidden border-t bg-[Canvas]",
 				className,
 			)}
 			{...props}
