@@ -14,6 +14,12 @@ export const UPGRADE_STYLES = {
 		text: "text-[#0a004a] disabled:text-[#0a004a]/50",
 		progress: "text-blue-400",
 	},
+	rate: {
+		bg: "bg-red-200",
+		border: "border-red-100",
+		text: "text-red-400 disabled: text-red-300",
+		progress: "text-red-400",
+	},
 } as const;
 
 export const Savings: FunctionalComponent<
