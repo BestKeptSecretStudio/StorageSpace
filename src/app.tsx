@@ -83,7 +83,7 @@ export function App() {
 			</Column>
 			<Column>
 				<ColumnHeading>Savings</ColumnHeading>
-				<ColumnContent>
+				<ColumnContent class="flex flex-col gap-y-2">
 					{values(UPGRADES)
 						.filter((upgrade) => !upgrades.includes(upgrade.id))
 						.map((upgrade) => {
