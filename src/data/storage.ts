@@ -21,7 +21,11 @@ export interface Unit {
 
 export type UnitProperty = "cost" | "area" | "rate";
 export type DerivedProperty = "income" | "count";
-export type Property = UnitProperty | DerivedProperty;
+
+export const GLOBAL_PROPERTIES = ["money"] as const;
+export type GlobalProperty = (typeof GLOBAL_PROPERTIES)[number];
+
+export type Property = UnitProperty | DerivedProperty | GlobalProperty;
 
 export const UNITS = {
 	/*

@@ -1,22 +1,48 @@
-import { UNITS, UNIT_IDS, type Property, type UnitID } from "@/data/storage";
+import {
+	GLOBAL_PROPERTIES,
+	UNITS,
+	UNIT_IDS,
+	type DerivedProperty,
+	type GlobalProperty,
+	type UnitID,
+	type UnitProperty,
+} from "@/data/storage";
 import { type Effect } from "@/data/upgrades";
 import { mutate } from "@/lib/value";
+import { $money, $totalMoney } from "@/state/$money";
 import { $units } from "@/state/$storage";
 import { $effects } from "@/state/$upgrades";
 
-/** Path to a specific unit's property */
-export type UnitPropertyPath = [property: Property, unit: UnitID];
+/** Path to a specific unit's base property. */
+export type UnitPropertyPath = [property: UnitProperty, unit: UnitID];
 
-/** Path to an aggregate property */
-export type AggregatePropertyPath = [property: Property];
+/** Path to a per-unit value. */
+type UnitValuePath = [property: UnitProperty | DerivedProperty, unit: UnitID];
+
+/** Path to an aggregate property. */
+export type AggregatePropertyPath = [
+	property: UnitProperty | DerivedProperty,
+];
+
+export type MoneySelector = "current" | "total";
+
+export type GlobalPropertyPath = ["money", MoneySelector];
+
+/**
+ * Type guard to check if a path is a global property path.
+ */
+function isGlobalPropertyPath(path: PropertyPath): path is GlobalPropertyPath {
+	return GLOBAL_PROPERTIES.includes(path[0] as GlobalProperty);
+}
 
 /** Valid property paths */
-export type PropertyPath = UnitPropertyPath | AggregatePropertyPath;
+export type PropertyPath =
+	| UnitValuePath
+	| AggregatePropertyPath
+	| GlobalPropertyPath;
 
 /**
  * Check if effect key is a prefix of the target path.
- * `["area"]` matches `["area"]` and `["area", "shed"]`
- * `["area", "shed"]` matches only `["area", "shed"]`
  */
 function isPrefix(key: string[], path: string[]): boolean {
 	if (key.length > path.length) return false;
@@ -26,15 +52,9 @@ function isPrefix(key: string[], path: string[]): boolean {
 
 /**
  * Get raw value from {@link UNITS} for a base property.
- * Only works for base properties (area, rate), not derived (income).
  */
 function getBaseValue(path: UnitPropertyPath): number {
 	const [property, unit] = path;
-
-	if (property === "income" || property === "count")
-		throw new Error(
-			`\`${property}\` is a derived property, use \`getValue()\` instead`,
-		);
 
 	return UNITS[unit][property];
 }
@@ -59,16 +79,25 @@ function applyEffects(value: number, effects: Effect[]): number {
 }
 
 /**
- * Get the modified per-unit value for a property.
- * Does not multiply by count - returns value for a single unit.
- *
- * For base properties (area, rate):
- *   Fetches base value, applies matching effects.
- *
- * For derived properties (income):
- *   Computes `area × rate`, then applies income effects.
+ * Get the value of a global property.
  */
-export function getUnitValue(path: UnitPropertyPath): number {
+export function getGlobalValue(path: GlobalPropertyPath): number {
+	const [property, selector] = path;
+
+	if (property === "money") {
+		if (selector === "current") return $money.get();
+		if (selector === "total") return $totalMoney.get();
+
+		throw new Error(`Unknown money selector: ${selector}`);
+	}
+
+	throw new Error(`Unknown global property: ${property}`);
+}
+
+/**
+ * Get the modified per-unit value for a property. Returns value for a single unit. Use {@link getTotalValue()} to get values for all units of a type.
+ */
+export function getUnitValue(path: UnitValuePath): number {
 	const [property, unit] = path;
 
 	if (property === "income") {
@@ -83,22 +112,18 @@ export function getUnitValue(path: UnitPropertyPath): number {
 		return $units.get()[unit].count;
 	}
 
-	const base = getBaseValue(path);
+	const base = getBaseValue([property, unit]);
 	const effects = getMatchingEffects(path);
 
 	return applyEffects(base, effects);
 }
 
 /**
- * Get the total value for a property across owned units.
- *
- * For unit-specific path (e.g., `["area", "shed"]`):
- *   Returns `getValue(path) × count` of that unit.
- *
- * For aggregate path (e.g., `["area"]`):
- *   Sums `getTotalValue()` for each unit type.
+ * Get the total value for a property across owned units. Aggregate values are provided for all units combined.
  */
-export function getTotalValue(path: PropertyPath): number {
+export function getTotalValue(
+	path: UnitValuePath | AggregatePropertyPath,
+): number {
 	const [property, unit] = path;
 
 	if (unit) {
@@ -116,13 +141,11 @@ export function getTotalValue(path: PropertyPath): number {
 
 /**
  * Get value for a property path.
- *
- * For unit-specific path (e.g., `["area", "shed"]`):
- *   Returns the per-unit value (not multiplied by count).
- *
- * For aggregate path (e.g., `["area"]`):
- *   Returns the total value across all owned units.
  */
 export function getValue(path: PropertyPath): number {
-	return path.length === 2 ? getUnitValue(path) : getTotalValue(path);
+	if (isGlobalPropertyPath(path)) return getGlobalValue(path);
+
+	const [property, unit] = path;
+
+	return unit ? getUnitValue([property, unit]) : getTotalValue([property]);
 }
