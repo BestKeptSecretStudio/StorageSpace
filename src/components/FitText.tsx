@@ -11,6 +11,8 @@ export const FitText: FunctionComponent<
 			style={
 				{
 					"--fit-text-max": max,
+					// * we assume we would always use it correctly internally
+					// oxlint-disable-next-line typescript/no-misused-spread
 					...(style as CSSProperties),
 				} as CSSProperties
 			}
