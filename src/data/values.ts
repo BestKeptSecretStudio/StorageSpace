@@ -86,10 +86,10 @@ export function getGlobalValue(path: GlobalPropertyPath): number {
 		if (selector === "current") return $money.get();
 		if (selector === "total") return $totalMoney.get();
 
-		throw new Error(`Unknown money selector: ${selector}`);
+		throw new Error(`Unknown money selector: ${selector as string}`);
 	}
 
-	throw new Error(`Unknown global property: ${property}`);
+	throw new Error(`Unknown global property: ${property as string}`);
 }
 
 /**
