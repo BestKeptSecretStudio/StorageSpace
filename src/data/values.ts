@@ -20,9 +20,7 @@ export type UnitPropertyPath = [property: UnitProperty, unit: UnitID];
 type UnitValuePath = [property: UnitProperty | DerivedProperty, unit: UnitID];
 
 /** Path to an aggregate property. */
-export type AggregatePropertyPath = [
-	property: UnitProperty | DerivedProperty,
-];
+export type AggregatePropertyPath = [property: UnitProperty | DerivedProperty];
 
 export type MoneySelector = "current" | "total";
 
