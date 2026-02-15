@@ -65,4 +65,27 @@ export const UPGRADES = {
 		],
 		news: "thinner_walls",
 	},
+	"shed/rate/1": {
+		id: "shed/rate/1",
+		name: "Fresh Paint",
+		description: "Amazing what a coat of paint does for perceived value.",
+		target: "shed",
+		type: "rate",
+		cost: 200,
+		requirements: [
+			{
+				key: ["money", "total"],
+				comparator: ">=",
+				value: 1_000,
+			},
+		],
+		effects: [
+			{
+				key: ["rate", "shed"],
+				mutator: "*",
+				value: 0.1,
+			},
+		],
+		news: "fresh_paint",
+	},
 } as const satisfies Record<string, Upgrade>;
