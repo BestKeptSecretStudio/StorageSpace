@@ -61,7 +61,7 @@ export const Ticker: FunctionalComponent<HTMLAttributes<HTMLDivElement>> = ({
 	...props
 }) => {
 	const [line] = useStore($news);
-	const text = !!line ? getNewsItem(line).text : null;
+	const text = line ? getNewsItem(line).text : null;
 
 	return (
 		<div
