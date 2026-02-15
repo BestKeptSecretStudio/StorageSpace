@@ -56,8 +56,9 @@ export function executeTransaction(
 	count = 1,
 ): void {
 	removeMoney(cost * count);
-	type === "upgrade"
-		? addUpgrade(id as UpgradeID)
-		: addUnit(id as UnitID, count);
+
+	if (type === "upgrade") addUpgrade(id as UpgradeID);
+	else addUnit(id as UnitID, count);
+
 	addTransactionToHistory({ type, target: id, cost, count });
 }
