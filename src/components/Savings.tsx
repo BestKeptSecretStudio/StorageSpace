@@ -17,7 +17,7 @@ export const UPGRADE_STYLES = {
 	rate: {
 		bg: "bg-red-200",
 		border: "border-red-100",
-		text: "text-red-400 disabled: text-red-300",
+		text: "text-red-400 disabled:text-red-300",
 		progress: "text-red-400",
 	},
 } as const;
