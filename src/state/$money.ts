@@ -16,6 +16,10 @@ const INITIAL_MONEY = UNITS["shed"].cost;
 export const $money = atom(INITIAL_MONEY);
 export const $totalMoney = atom(INITIAL_MONEY);
 
+$money.subscribe((value, old) => {
+	if (old && value > old) $totalMoney.set($totalMoney.get() + (value - old));
+});
+
 export const $income = computed($units, () => getValue(["income"]));
 
 export function addMoney(value: USD): void {
@@ -23,8 +27,6 @@ export function addMoney(value: USD): void {
 	// ↓ this can happen when calendar advances with no units yet purchased
 	// if (value === 0) throw new Error("Attempted to add zero money");
 
-	// TODO: use `.subscribe()` to achieve the same?
-	$totalMoney.set($totalMoney.get() + value);
 	return $money.set($money.get() + value);
 }
 
