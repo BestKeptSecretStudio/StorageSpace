@@ -85,7 +85,11 @@ export function App() {
 				<ColumnHeading>Savings</ColumnHeading>
 				<ColumnContent class="flex flex-col gap-y-2">
 					{values(UPGRADES)
-						.filter((upgrade) => !upgrades.includes(upgrade.id))
+						.filter(
+							(upgrade) =>
+								!upgrades.includes(upgrade.id) &&
+								units[upgrade.target].visible,
+						)
 						.map((upgrade) => {
 							const styles = UPGRADE_STYLES[upgrade.type];
 							const requirements = upgrade.requirements;
