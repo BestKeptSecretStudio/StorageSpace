@@ -131,8 +131,18 @@ export function App() {
 											requirement.value,
 										);
 
-										// TODO: if satisfied, don't render progress bar
-										// * fill same space with padding to avoid offsetting the size?
+										if (isSatisfied)
+											return (
+												<div class="flex items-center gap-x-2 h-[1.33lh]">
+													<Icon name="checkmark" />{" "}
+													Available for purchase
+												</div>
+											);
+
+										const label = getRequirementLabel(
+											requirement.key,
+										);
+										const metric = `${current} / ${requirement.value}`;
 
 										return (
 											<SavingsProgress class="w-full flex flex-col gap-y-1 z-20">

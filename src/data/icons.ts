@@ -1,5 +1,6 @@
 import GarageIcon from "@public/icons/garage.svg";
 import ShedIcon from "@public/icons/shed.svg";
+import CheckmarkIcon from "@public/icons/checkmark.svg";
 
 export type IconKey = keyof typeof ICONS;
 
@@ -12,6 +13,8 @@ export const ICONS = {
 	facility: GarageIcon,
 	warehouse: GarageIcon,
 	depot: GarageIcon,
+
+	checkmark: CheckmarkIcon,
 
 	// * MISSING ICON
 	missing: ShedIcon,
