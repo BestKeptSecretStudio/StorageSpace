@@ -12,7 +12,10 @@ export const Footer: FunctionalComponent<HTMLAttributes<HTMLElement>> = ({
 		<>
 			<Ticker />
 			<footer
-				class={cn("text-sm tracking-[0.02ch] border-t", className)}
+				class={cn(
+					"text-sm tracking-[0.02ch] border-t border-border text-ink-tertiary",
+					className,
+				)}
 				{...props}
 			>
 				<div className="p-6">{children}</div>

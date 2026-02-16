@@ -9,7 +9,7 @@ export const Root: FunctionalComponent<HTMLAttributes<HTMLDivElement>> = ({
 	return (
 		<div
 			class={cn(
-				"flex flex-col min-h-screen h-full font-grounded",
+				"flex flex-col min-h-screen h-full font-grounded bg-surface text-ink",
 				className,
 			)}
 			{...props}

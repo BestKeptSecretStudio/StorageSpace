@@ -17,7 +17,7 @@ export const TransactionIcon: FunctionalComponent<
 	return (
 		<div
 			class={cn(
-				"h-[2lh] aspect-square flex justify-center items-center bg-slate-200 rounded-md p-2 text-slate-700",
+				"h-[2lh] aspect-square flex justify-center items-center bg-surface-sunken rounded-md p-2 text-ink-secondary",
 				className,
 			)}
 			{...props}
@@ -50,7 +50,7 @@ export const TransactionSource: FunctionalComponent<
 	HTMLAttributes<HTMLSpanElement>
 > = ({ children, className, ...props }) => {
 	return (
-		<span class={cn("text-sm text-slate-500", className)} {...props}>
+		<span class={cn("text-sm text-ink-tertiary", className)} {...props}>
 			{children}
 		</span>
 	);
@@ -60,7 +60,10 @@ export const TransactionCost: FunctionalComponent<
 	HTMLAttributes<HTMLSpanElement>
 > = ({ children, className, ...props }) => {
 	return (
-		<span class={cn("self-center text-red-500", className)} {...props}>
+		<span
+			class={cn("self-center text-negative font-medium", className)}
+			{...props}
+		>
 			{children}
 		</span>
 	);

@@ -9,16 +9,16 @@ export type Style = keyof typeof UPGRADE_STYLES;
 
 export const UPGRADE_STYLES = {
 	area: {
-		bg: "bg-blue-300",
-		border: "border-blue-200",
-		text: "text-[#0a004a] disabled:text-[#0a004a]/50",
-		progress: "text-blue-400",
+		bg: "bg-area-surface",
+		border: "border-area-border",
+		text: "text-area-ink disabled:text-area-ink/40",
+		progress: "text-area-accent",
 	},
 	rate: {
-		bg: "bg-red-200",
-		border: "border-red-100",
-		text: "text-red-400 disabled:text-red-300",
-		progress: "text-red-400",
+		bg: "bg-rate-surface",
+		border: "border-rate-border",
+		text: "text-rate-ink disabled:text-rate-ink/40",
+		progress: "text-rate-accent",
 	},
 } as const;
 
@@ -84,7 +84,7 @@ export const SavingsTitle: FunctionalComponent<
 > = ({ children, className, ...props }) => {
 	return (
 		<h3
-			class={cn("text-xl font-medium text-inherit", className)}
+			class={cn("text-xl font-semibold text-inherit", className)}
 			{...props}
 		>
 			{children}

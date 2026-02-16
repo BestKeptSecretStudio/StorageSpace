@@ -23,13 +23,15 @@ export const Layout: typeof Root = ({ children, ...props }) => {
 				>
 					{MONEY_FORMATTER.format(money)}
 				</FitText>
-				<p class="tabular-nums -ml-[1ch]">
+				<p class="tabular-nums -ml-[1ch] text-positive font-medium">
 					+{MONEY_FORMATTER.format(income)}
 				</p>
-				<p class="tabular-nums">{AREA_FORMATTER.format(area)} m²</p>
-				<p class="tabular-nums select-none" onClick={tick}>
-					Week {week}
-				</p>
+				<div class="flex gap-x-4 text-sm text-ink-tertiary">
+					<p class="tabular-nums">{AREA_FORMATTER.format(area)} m²</p>
+					<p class="tabular-nums select-none" onClick={tick}>
+						Week {week}
+					</p>
+				</div>
 			</Header>
 			<Main>{children}</Main>
 			<Footer>

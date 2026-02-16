@@ -9,7 +9,7 @@ export const Main: FunctionalComponent<HTMLAttributes<HTMLElement>> = ({
 }) => {
 	return (
 		<main
-			class={cn("w-full grow flex flex-wrap gap-6 p-6", className)}
+			class={cn("w-full grow flex flex-wrap gap-8 p-6 pt-2", className)}
 			{...props}
 		>
 			{children}

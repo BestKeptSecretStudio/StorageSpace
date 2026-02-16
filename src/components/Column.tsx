@@ -24,7 +24,13 @@ export const ColumnHeading: FunctionalComponent<
 	HTMLAttributes<HTMLHeadingElement>
 > = ({ children, className, ...props }) => {
 	return (
-		<h2 class={cn("text-xl font-bold", className)} {...props}>
+		<h2
+			class={cn(
+				"text-fluid-1 font-bold font-grounded tracking-[0.02ch]",
+				className,
+			)}
+			{...props}
+		>
 			{children}
 		</h2>
 	);

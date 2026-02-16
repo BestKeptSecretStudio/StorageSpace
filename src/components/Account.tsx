@@ -12,9 +12,10 @@ export const Account: FunctionalComponent<
 		<button
 			class={cn(
 				"aspect-square size-32 flex flex-col",
-				"p-4 pb-2 bg-slate-300 rounded-md border-slate-200 shadow hover:shadow-md hover:active:shadow-none hover:active:inset-shadow-sm",
-				"text-sm text-slate-600 hover:text-slate-900 hover:active:text-black",
-				"disabled:cursor-not-allowed disabled:text-slate-400 disabled:hover:shadow-md disabled:hover:active:text-slate-400",
+				"p-4 pb-2 bg-surface-raised rounded-md border border-border",
+				"shadow-sm hover:shadow-md hover:active:shadow-none hover:active:inset-shadow-sm",
+				"text-sm text-ink-secondary hover:text-ink hover:active:text-ink",
+				"disabled:cursor-not-allowed disabled:text-ink-tertiary disabled:hover:shadow-sm disabled:hover:active:text-ink-tertiary",
 				"cursor-pointer transition",
 				className,
 			)}
@@ -29,7 +30,7 @@ export const AccountIcon: FunctionalComponent<
 	HTMLAttributes<HTMLDivElement>
 > = ({ children, className, ...props }) => {
 	return (
-		<div class={cn("size-8", className)} {...props}>
+		<div class={cn("size-10", className)} {...props}>
 			{children}
 		</div>
 	);

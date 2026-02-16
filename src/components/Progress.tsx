@@ -47,7 +47,7 @@ export const Progress: FunctionalComponent<ProgressBarProps> = ({
 			aria-valuemin={min}
 			aria-valuemax={max}
 			className={cn(
-				"h-2 w-full overflow-hidden rounded-md bg-[Canvas]",
+				"h-2 w-full overflow-hidden rounded-md bg-surface-sunken",
 				className,
 			)}
 		>

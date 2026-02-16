@@ -12,7 +12,7 @@ export const Header: FunctionalComponent<HTMLAttributes<HTMLElement>> = ({
 		<header
 			class={cn(
 				"sticky top-0 left-0 w-full p-6 z-100",
-				"bg-linear-to-b from-[Canvas] via-[Canvas] via-80% to-transparent",
+				"bg-linear-to-b from-surface via-surface via-80% to-transparent",
 				className,
 			)}
 			{...props}

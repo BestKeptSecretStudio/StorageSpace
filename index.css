@@ -18,6 +18,33 @@
 	--text-fluid-10: clamp(3.03125rem, 1.59rem + 6.99vw, 6.965625rem);
 	--text-fluid-11: clamp(3.78875rem, 1.35rem + 11.84vw, 10.448125rem);
 	--text-fluid-12: clamp(4.735625rem, 0.73rem + 19.44vw, 15.671875rem);
+
+	--color-surface: #f5f3ef;
+	--color-surface-raised: #faf9f6;
+	--color-surface-sunken: #eae7e1;
+	--color-ink: #1d1a14;
+	--color-ink-secondary: #71695e;
+	--color-ink-tertiary: #a39b8f;
+	--color-border: #ddd9d2;
+	--color-accent: #0d6b5e;
+	--color-positive: #0d6b5e;
+	--color-negative: #b44225;
+
+	--color-area-surface: #d6e4f5;
+	--color-area-border: #b0c8e8;
+	--color-area-ink: #0c2d5a;
+	--color-area-accent: #2d6ab8;
+
+	--color-rate-surface: #f0d5cb;
+	--color-rate-border: #ddb8a8;
+	--color-rate-ink: #6b1e08;
+	--color-rate-accent: #b44225;
+
+	--color-cold: #00010a;
+}
+
+body {
+	background-color: var(--color-surface);
 }
 
 .font-grounded {
@@ -28,5 +55,9 @@
 }
 
 .background-cold {
-	background: linear-gradient(to bottom, #00010a 0%, transparent 100%);
+	background: linear-gradient(
+		to bottom,
+		var(--color-cold) 0%,
+		transparent 100%
+	);
 }
