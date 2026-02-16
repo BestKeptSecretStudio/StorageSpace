@@ -128,7 +128,7 @@ export function App() {
 										const isSatisfied = compare(
 											current,
 											requirement.comparator,
-											requirement.value as number,
+											requirement.value,
 										);
 
 										// TODO: if satisfied, don't render progress bar
