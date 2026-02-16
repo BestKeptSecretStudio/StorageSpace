@@ -33,7 +33,7 @@ export function addMoney(value: USD): void {
 	// ↓ this can happen when calendar advances with no units yet purchased
 	// if (value === 0) throw new Error("Attempted to add zero money");
 
-	return $money.set($money.get() + value);
+	$money.set($money.get() + value);
 }
 
 export function removeMoney(value: USD): void {
@@ -46,14 +46,14 @@ export function removeMoney(value: USD): void {
 	if (current - value < 0)
 		throw new Error("Attempted to remove more money than is available");
 
-	return $money.set(current - value);
+	$money.set(current - value);
 }
 
 export function setMoney(value: USD): void {
 	if (value < 0) throw new Error("Attempted to set money to negative amount");
 	if (value === 0) throw new Error("Attempted to set money to zero");
 
-	return $money.set(value);
+	$money.set(value);
 }
 
 export function hasEnoughMoney(required: USD): boolean {

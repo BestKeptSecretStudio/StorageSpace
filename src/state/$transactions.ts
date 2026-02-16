@@ -30,7 +30,7 @@ export function addTransactionToHistory(
 	const current = $transactions.get();
 	const id = Math.max(...current.map((transaction) => transaction.id), 0) + 1;
 
-	return $transactions.set([
+	$transactions.set([
 		{ id, ...transaction },
 		// * `slice()`'s `end` param is exclusive
 		...$transactions.get().slice(0, MAX_TRANSACTIONS - 1),

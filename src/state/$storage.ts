@@ -71,7 +71,7 @@ export function addUnit(id: UnitID, value: number): void {
 
 	const current = $units.get()[id].count;
 
-	return $units.setKey(`${id}.count`, current + value);
+	$units.setKey(`${id}.count`, current + value);
 }
 
 export function setUnit(id: UnitID, value: number): void {
@@ -80,7 +80,7 @@ export function setUnit(id: UnitID, value: number): void {
 			`Attempted to set storage type \`${id}\` to less than zero`,
 		);
 
-	return $units.setKey(`${id}.count`, value);
+	$units.setKey(`${id}.count`, value);
 }
 
 function getCostScaling(cost: number, count: number): number {
