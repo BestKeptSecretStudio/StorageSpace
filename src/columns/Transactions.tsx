@@ -8,8 +8,7 @@ import {
 	TransactionSource,
 	TransactionTitle,
 } from "@/components/Transaction";
-import { getUnit, type UnitID } from "@/data/storage";
-import type { UpgradeID } from "@/data/upgrades";
+import { getUnit } from "@/data/storage";
 import { MONEY_FORMATTER } from "@/state/$money";
 import { $transactions } from "@/state/$transactions";
 import { getUpgrade, resolveUpgradeTarget } from "@/state/$upgrades";
@@ -25,14 +24,12 @@ export function Transactions() {
 				{transactions.map((transaction) => {
 					const target =
 						transaction.type === "upgrade"
-							? resolveUpgradeTarget(
-									transaction.target as UpgradeID,
-								)
-							: (transaction.target as UnitID);
+							? resolveUpgradeTarget(transaction.target)
+							: transaction.target;
 					const item =
 						transaction.type === "upgrade"
-							? getUpgrade(transaction.target as UpgradeID)
-							: getUnit(transaction.target as UnitID);
+							? getUpgrade(transaction.target)
+							: getUnit(transaction.target);
 
 					return (
 						<Transaction>

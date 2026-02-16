@@ -44,6 +44,6 @@ export function buyUpgrade(id: UpgradeID): void {
 	const upgrade = getUpgrade(id);
 	const { cost, news } = upgrade;
 
-	executeTransaction("upgrade", id, cost, 1);
+	executeTransaction({ type: "upgrade", target: id, cost, count: 1 });
 	if (news) addNews(news);
 }

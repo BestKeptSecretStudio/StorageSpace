@@ -109,5 +109,5 @@ export function buyUnit(id: UnitID, count = 1): void {
 	// * use `getCostScaling()` directly? (current count [existing] + desired count [from this fn])
 	const cost = getUnitCost(id);
 
-	executeTransaction("unit", id, cost, count);
+	executeTransaction({ type: "unit", target: id, cost, count });
 }
