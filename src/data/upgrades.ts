@@ -53,7 +53,7 @@ export const UPGRADES = {
 			{
 				key: ["area"],
 				comparator: ">=",
-				value: 50,
+				value: 20,
 			},
 		],
 		effects: [
@@ -76,7 +76,7 @@ export const UPGRADES = {
 			{
 				key: ["money", "total"],
 				comparator: ">=",
-				value: 1_000,
+				value: 600,
 			},
 		],
 		effects: [
