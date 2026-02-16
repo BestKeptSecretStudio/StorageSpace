@@ -157,7 +157,5 @@ export function getTotalValue(
 export function getValue(path: PropertyPath): number {
 	if (isGlobalPropertyPath(path)) return getGlobalValue(path);
 
-	const [property, unit] = path;
-
-	return unit ? getUnitValue([property, unit]) : getTotalValue([property]);
+	return getTotalValue(path);
 }
