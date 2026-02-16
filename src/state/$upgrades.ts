@@ -1,4 +1,5 @@
-import { type UpgradeID, UPGRADES } from "@/data/upgrades";
+import type { UnitID } from "@/data/storage";
+import { type Upgrade, type UpgradeID, UPGRADES } from "@/data/upgrades";
 import { values } from "@/lib/object";
 import { MUTATOR_ORDER } from "@/lib/value";
 import { atom, computed } from "nanostores";
@@ -20,11 +21,11 @@ export const $effects = computed($upgrades, (upgrades) =>
 );
 
 // * `id` is by definition one of the valid keys
-export function getUpgrade(id: UpgradeID) {
+export function getUpgrade(id: UpgradeID): Upgrade {
 	return UPGRADES[id];
 }
 
-export function resolveUpgradeTarget(id: UpgradeID) {
+export function resolveUpgradeTarget(id: UpgradeID): UnitID {
 	const upgrade = getUpgrade(id);
 
 	return upgrade.target;
