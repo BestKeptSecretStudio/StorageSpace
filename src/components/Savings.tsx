@@ -22,7 +22,7 @@ export const UPGRADE_STYLES = {
 	},
 } as const;
 
-export const Savings: FunctionalComponent<
+export const Saving: FunctionalComponent<
 	ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ children, className, ...props }) => {
 	return (
@@ -48,7 +48,7 @@ export const Savings: FunctionalComponent<
 	);
 };
 
-export const SavingsIcon: FunctionalComponent<
+export const SavingIcon: FunctionalComponent<
 	HTMLAttributes<HTMLDivElement>
 > = ({ children, className, ...props }) => {
 	return (
@@ -66,9 +66,11 @@ export const SavingsIcon: FunctionalComponent<
 	);
 };
 
-export const SavingsHeader: FunctionalComponent<
-	HTMLAttributes<HTMLElement>
-> = ({ children, className, ...props }) => {
+export const SavingHeader: FunctionalComponent<HTMLAttributes<HTMLElement>> = ({
+	children,
+	className,
+	...props
+}) => {
 	return (
 		<header
 			class={cn("w-full flex flex-col gap-y-2", className)}
@@ -79,7 +81,7 @@ export const SavingsHeader: FunctionalComponent<
 	);
 };
 
-export const SavingsTitle: FunctionalComponent<
+export const SavingTitle: FunctionalComponent<
 	HTMLAttributes<HTMLHeadingElement>
 > = ({ children, className, ...props }) => {
 	return (
@@ -92,7 +94,7 @@ export const SavingsTitle: FunctionalComponent<
 	);
 };
 
-export const SavingsDescription: FunctionalComponent<
+export const SavingDescription: FunctionalComponent<
 	HTMLAttributes<HTMLParagraphElement>
 > = ({ children, className, ...props }) => {
 	return (
