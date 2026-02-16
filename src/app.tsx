@@ -30,7 +30,7 @@ import {
 	TransactionTitle,
 } from "./components/Transaction";
 import { UPGRADES, type UpgradeID } from "./data/upgrades";
-import { getValue } from "./data/values";
+import { getRequirementLabel, getValue } from "./data/values";
 import { cn } from "./lib/utils";
 import { compare } from "./lib/value";
 import { $money, hasEnoughMoney, MONEY_FORMATTER } from "./state/$money";
@@ -151,12 +151,8 @@ export function App() {
 													max={requirement.value}
 												/>
 												<div class="flex justify-between text-sm">
-													{/* TODO: replace display value with e.g. "Total
-													sheds" */}
-													<span>{current}</span>
-													<span>
-														{requirement.value}
-													</span>
+													<span>{label}</span>
+													<span>{metric}</span>
 												</div>
 											</SavingsProgress>
 										);

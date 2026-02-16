@@ -48,6 +48,20 @@ function isPrefix(key: string[], path: string[]): boolean {
 	return key.every((segment, index) => segment === path[index]);
 }
 
+export function getRequirementLabel(key: PropertyPath): string {
+	const [property, target] = key;
+
+	if (property === "money") {
+		return target === "total" ? "Total earned" : "Money";
+	}
+
+	if (target) {
+		return `${UNITS[target as UnitID].name} ${property}`;
+	}
+
+	return `Total ${property}`;
+}
+
 /**
  * Get raw value from {@link UNITS} for a base property.
  */
