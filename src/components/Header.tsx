@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { type FunctionalComponent, type HTMLAttributes } from "preact";
 
-// * we use `HTMLElement`, rather than the non-existent `HTMLHeaderElement`, because the HTML spec requires "elements that have no additional requirements" t use it
+// * we use `HTMLElement`, rather than the non-existent `HTMLHeaderElement`, because the HTML spec requires "elements that have no additional requirements" to use it
 export const Header: FunctionalComponent<HTMLAttributes<HTMLElement>> = ({
 	children,
 	className,
