@@ -88,4 +88,143 @@ export const UPGRADES = {
 		],
 		news: "fresh_paint",
 	},
+	"shed/area/2": {
+		id: "shed/area/2",
+		name: "Reinforced Beams",
+		description: "Thinner but stronger. Engineering!",
+		target: "shed",
+		type: "area",
+		cost: 500,
+		requirements: [
+			{
+				key: ["money", "total"],
+				comparator: ">=",
+				value: 2_000,
+			},
+		],
+		effects: [
+			{
+				key: ["area", "shed"],
+				mutator: "*",
+				value: 0.15,
+			},
+		],
+		news: "reinforced_beams",
+	},
+	"shed/rate/2": {
+		id: "shed/rate/2",
+		name: "LED Lighting",
+		description:
+			"Renters will pay a premium for sheds they can see inside.",
+		target: "shed",
+		type: "rate",
+		cost: 800,
+		requirements: [
+			{
+				key: ["area", "shed"],
+				comparator: ">=",
+				value: 50,
+			},
+		],
+		effects: [
+			{
+				key: ["rate", "shed"],
+				mutator: "*",
+				value: 0.15,
+			},
+		],
+		news: "led_lighting",
+	},
+	"garage/area/1": {
+		id: "garage/area/1",
+		name: "Overhead Racks",
+		description: "Turns out garages have ceilings. Who knew?",
+		target: "garage",
+		type: "area",
+		cost: 3_000,
+		requirements: [
+			{
+				key: ["area"],
+				comparator: ">=",
+				value: 150,
+			},
+		],
+		effects: [
+			{
+				key: ["area", "garage"],
+				mutator: "*",
+				value: 0.1,
+			},
+		],
+		news: "overhead_racks",
+	},
+	"garage/rate/1": {
+		id: "garage/rate/1",
+		name: "Security Camera",
+		description: "Renters feel safer. Rates climb. Everybody wins.",
+		target: "garage",
+		type: "rate",
+		cost: 5_000,
+		requirements: [
+			{
+				key: ["money", "total"],
+				comparator: ">=",
+				value: 50_000,
+			},
+		],
+		effects: [
+			{
+				key: ["rate", "garage"],
+				mutator: "*",
+				value: 0.1,
+			},
+		],
+		news: "security_camera",
+	},
+	"lot/area/1": {
+		id: "lot/area/1",
+		name: "Mezzanine Level",
+		description: "Adding a second floor never hurt anyone. Probably.",
+		target: "lot",
+		type: "area",
+		cost: 30_000,
+		requirements: [
+			{
+				key: ["area", "lot"],
+				comparator: ">=",
+				value: 600,
+			},
+		],
+		effects: [
+			{
+				key: ["area", "lot"],
+				mutator: "*",
+				value: 0.1,
+			},
+		],
+		news: "mezzanine_level",
+	},
+	"lot/rate/1": {
+		id: "lot/rate/1",
+		name: "Gated Entry",
+		description: "A gate and a keypad. Monthly fees somehow increase.",
+		target: "lot",
+		type: "rate",
+		cost: 50_000,
+		requirements: [
+			{
+				key: ["money", "total"],
+				comparator: ">=",
+				value: 500_000,
+			},
+		],
+		effects: [
+			{
+				key: ["rate", "lot"],
+				mutator: "*",
+				value: 0.1,
+			},
+		],
+		news: "gated_entry",
+	},
 } as const satisfies Record<string, Upgrade>;
