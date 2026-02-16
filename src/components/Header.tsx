@@ -11,7 +11,7 @@ export const Header: FunctionalComponent<HTMLAttributes<HTMLElement>> = ({
 	return (
 		<header
 			class={cn(
-				"sticky top-0 left-0 w-full p-6 z-100",
+				"sticky top-0 left-0 w-full p-6 pb-8 z-100",
 				"bg-linear-to-b from-surface via-surface via-80% to-transparent",
 				className,
 			)}
