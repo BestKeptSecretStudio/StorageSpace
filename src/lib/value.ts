@@ -5,11 +5,14 @@ export type Comparator = "===" | "!==" | ">=" | "<=" | "<" | ">";
 export type Mutator = "=" | "+" | "-" | "*" | "/";
 
 type ComparatorTable = {
-	[K in Comparator]: (a: PropertyValue, b: PropertyValue) => boolean;
+	[K in Comparator]: (left: PropertyValue, right: PropertyValue) => boolean;
 };
 
 type MutatorTable = {
-	[K in Mutator]: (a: PropertyValue, b: PropertyValue) => PropertyValue;
+	[K in Mutator]: (
+		left: PropertyValue,
+		right: PropertyValue,
+	) => PropertyValue;
 };
 
 export const MUTATOR_ORDER = ["=", "+", "-", "*", "/"] as const;
