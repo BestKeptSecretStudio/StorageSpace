@@ -24,7 +24,7 @@ const COMPARATOR_TABLE: ComparatorTable = {
 };
 
 const MUTATOR_TABLE: MutatorTable = {
-	"=": (_value, target) => target,
+	"=": (_alue, target) => target,
 	"+": (value, target) => value + target,
 	"-": (value, target) => value - target,
 	"*": (value, target) => value * (1 + target),
