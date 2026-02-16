@@ -17,7 +17,13 @@ export const $money = atom(INITIAL_MONEY);
 export const $totalMoney = atom(INITIAL_MONEY);
 
 $money.subscribe((value, old) => {
-	if (old && value > old) $totalMoney.set($totalMoney.get() + (value - old));
+	if (old === undefined) return;
+
+	const difference = value - old;
+	const total = $totalMoney.get() + difference;
+
+	// * don't add if difference doesn't indicate an increase
+	if (difference > 0) $totalMoney.set(total);
 });
 
 export const $income = computed($units, () => getValue(["income"]));
