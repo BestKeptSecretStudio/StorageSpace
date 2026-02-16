@@ -98,8 +98,6 @@ export function App() {
 									),
 								) && hasEnoughMoney(upgrade.cost);
 
-							// TODO: add styling for "success"/satisfied state
-
 							return (
 								<Savings
 									className={cn(
