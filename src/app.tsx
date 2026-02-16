@@ -144,7 +144,7 @@ export function App() {
 										const label = getRequirementLabel(
 											requirement.key,
 										);
-										const metric = `${current} / ${requirement.value}`;
+										const metric = `${parseFloat(current.toFixed(2))} / ${requirement.value}`;
 
 										return (
 											<SavingsProgress class="w-full flex flex-col gap-y-1 z-20">
