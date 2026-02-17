@@ -21,3 +21,7 @@ export function values<T extends object>(object: T): Values<T> {
 export function entries<T extends object>(object: T): Entries<T> {
 	return Object.entries(object) as Entries<T>;
 }
+
+export function fromEntries<T extends object>(entries: Entries<T>): T {
+	return Object.fromEntries(entries) as T;
+}

@@ -1,6 +1,6 @@
 import { UNITS, type UnitID } from "@/data/storage";
 import { getValue } from "@/data/values";
-import { entries } from "@/lib/object";
+import { entries, fromEntries } from "@/lib/object";
 import { $money } from "@/state/$money";
 import { deepMap } from "@nanostores/deepmap";
 import { computed, onMount } from "nanostores";
@@ -51,9 +51,7 @@ onMount($units, () => {
 				} satisfies UnitData,
 			] satisfies [UnitID, UnitData];
 		});
-		// FIXME: despite our earlier assertions, this does not map back to `UnitMap` on its own
-		// * this may be because `.fromEntries()`'s type returns `[k: string]` for key
-		const map = Object.fromEntries(mapped) as UnitMap;
+		const map = fromEntries(mapped);
 
 		$units.set(map);
 	});
